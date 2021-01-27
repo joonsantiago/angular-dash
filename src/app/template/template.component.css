@@ -1,0 +1,19 @@
+.content-container {
+    width: auto;
+    height: calc(100vh - 7.3vh);
+}
+  
+.sidenav-content {
+    padding: 40px;
+    align-items: center;
+    justify-content: center;
+}
+  
+.content-drawer {
+    padding: 20px;
+    min-width: 250px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
