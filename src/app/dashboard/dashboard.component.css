@@ -1,0 +1,24 @@
+.bg-darkturquoise {
+    background-color: darkturquoise;
+    color: #fff;
+}
+.bg-forestgreen {
+    background-color: forestgreen;
+    color: #fff;
+}
+.bg-rebeccapurple {
+    background-color: rebeccapurple;
+    color: #fff;
+}
+.bg-coral {
+    background-color: coral;
+    color: #fff;
+}
+
+.mat-icon-circle-1 {
+    width: 70px;
+    height: 70px;
+    padding-top: 13px;
+    border-radius: 80px;
+    font-size: 2.5rem!important;
+}
