@@ -1,33 +1,38 @@
 
-<mat-toolbar color="primary">
-    <button mat-icon-button aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>My App</span>
-
-    <span class="spacer"></span>
-    <button mat-icon-button class="favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button>
-</mat-toolbar>
-
 <mat-drawer-container class="content-container" autosize>
     <mat-drawer #drawer class="content-drawer" mode="side" opened>
 
-        <button mat-button>
+        <div class="logo-company"></div>
+        <div class="perfil-user"></div>
+        <div class="perfil-name">José da Silva Rodrigues</div>
+
+        <button mat-button class="item-menu">
             <mat-icon class="">dashboard</mat-icon>
             Dashboard
         </button>
 
-        <p>Auto-resizing sidenav</p>
-        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-        <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
+        <button mat-button class="item-menu">
+            <mat-icon class="">info</mat-icon>
+            Dashboard
         </button>
+
     </mat-drawer>
+
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+
+        <span class="spacer"></span>
+        <button mat-icon-button class="favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar>
 
     <div class="sidenav-content">
 

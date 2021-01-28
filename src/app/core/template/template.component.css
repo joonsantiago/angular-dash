@@ -1,6 +1,7 @@
 .content-container {
     width: auto;
-    height: calc(100vh - 7.3vh);
+    height: 100%;
+    /* height: calc(100vh - 7.3vh); */
 }
   
 .sidenav-content {
@@ -10,10 +11,42 @@
 }
   
 .content-drawer {
-    padding: 20px;
-    min-width: 250px;
+    padding: 20px 0;
+    width: 300px;
 }
 
 .spacer {
     flex: 1 1 auto;
+}
+
+.item-menu {
+    width: 100%;
+    text-align: left;
+    padding: 10px 40px;
+}
+
+.logo-company {
+    width: 100%;
+    background: url(https://www.marepoxi.com.br/wp-content/uploads/2020/11/logo-02-1.png);
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position-x: 50px;
+    background-position-y: 0px;
+    background-size: contain;
+}
+
+.perfil-user {
+    background: url(https://media.istockphoto.com/photos/portrait-of-handsome-latino-african-man-picture-id1007763808?k=6&m=1007763808&s=612x612&w=0&h=Js1VDBulbaNw_CF7fghP_nhUPCC-DQTqb7Wym1CdTOI=);
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position-x: -30px;
+    background-size: cover;
+    border-radius: 2050px;
+    margin: 20px auto;
+}
+
+.perfil-name {
+    text-align: center;
+    margin-bottom: 30px;
 }
