@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { Mundial } from '../core/models/Mundial';
 import { People } from '../core/models/People';
-import { Upload } from '../core/models/Upload';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ import { Upload } from '../core/models/Upload';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -109,6 +110,43 @@ export class DashboardComponent implements OnInit {
     {data: [2788, 4548, 4450, 1789, 8126, 7827, 9990], label: 'Series B'}
   ];
 
+  // data for checkbox
+  public mundial: Mundial = {
+    name: 'Todos',
+    completed: false,
+    color: 'primary',
+    times: [
+      {name: 'Vasco', color: 'primary', completed: false},
+      {name: 'Flamengo', color: 'primary',completed: false},
+      {name: 'Palmeiras', color: 'primary',completed: false},
+      {name: 'São Paulo', color: 'primary',completed: false}
+    ]
+  };
+
+  allComplete: boolean = false;
+
+  updateAllComplete() {
+    this.allComplete = this.mundial.times != null && this.mundial.times.every(t => t.completed);
+  }
+
+  someComplete(): boolean {
+    if (this.mundial.times == null) {
+      return false;
+    }
+    return this.mundial.times.filter(t => t.completed).length > 0 && !this.allComplete;
+  }
+
+  setAll(completed: boolean) {
+    this.allComplete = completed;
+    if (this.mundial.times == null) {
+      return;
+    }
+    this.mundial.times.forEach(t => t.completed = completed);
+  }
+
+  //pagination label
+  public perPageLabel: string = "Itens por página";
+
   // data table
   public peoplesDisplayedColumns: string[] = ['id', 'name', 'lastUpdated', 'uploads'];
   public peoplesDataSource: People[] = [
@@ -170,6 +208,15 @@ export class DashboardComponent implements OnInit {
                                           {id: 2, total: 10, success: 7, fail: 3, awaiting: 0, createdAt: new Date(2021, 0, 13, 10, 30, 0)},
                                           {id: 3, total: 10, success: 8, fail: 0, awaiting: 2, createdAt: new Date(2021, 0, 15, 12, 30, 0)}
                                         ]}                                      
-  ]
+  ];
+
+  openSnackBar() {
+    this._snackBar.open('Resposta cadastrada com sucesso!', 'Fechar', {
+      duration: 2000,
+      horizontalPosition: "center",
+      verticalPosition: "top",
+      panelClass: 'primary'
+    });
+  }
 
 }

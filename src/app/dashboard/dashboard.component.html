@@ -141,10 +141,75 @@
                     <tr mat-header-row *matHeaderRowDef="peoplesDisplayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: peoplesDisplayedColumns;"></tr>
                 </table>
+                <mat-paginator #paginator [length]="100"
+                            [pageSize]="10"
+                            [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>
 
             </mat-card-content>
         </mat-card>
         
+    </div>
+
+    <div class="col-md-4">
+        <mat-card class="">
+            <mat-card-header class="pt-3 pb-3">
+                <mat-card-title>Enquete</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="p-4">
+                
+                <section>
+                    <p>Quais desses times tem mundial?</p>
+                    <span>
+                        <mat-checkbox  [checked]="allComplete"
+                            [color]="mundial.color"
+                            [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                            {{mundial.name}}
+                        </mat-checkbox>
+                    </span>
+                    <span>
+                        <ul>
+                            <li *ngFor="let t of mundial.times">
+                                <mat-checkbox [(ngModel)]="t.completed"
+                                    [color]="t.color"
+                                    (ngModelChange)="updateAllComplete()">
+                                    {{t.name}}
+                                </mat-checkbox>
+                            </li>
+                        </ul>
+                    </span>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Qual seu time de coração?</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+
+                    <p>Seu time possui futebol feminino? </p>
+                    <mat-radio-group >
+                        <mat-radio-button class="me-2" value="yes">Sim</mat-radio-button>
+                        <mat-radio-button value="no">Não</mat-radio-button>
+                    </mat-radio-group>
+
+                    <div class="mt-4">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Qual sua data de nascimento?</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mt-4">
+                        <button mat-raised-button color="primary" (click)="openSnackBar()">Salvar</button>
+                    </div>
+                    
+
+                </section>
+
+            </mat-card-content>
+        </mat-card>
+
     </div>
 
 </div>

@@ -9,6 +9,8 @@ import { MaterialModulesModule } from './core/material-modules/material-modules.
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { DecimalBrPipe } from './pipes/decimal-br.pipe';
+import { FormsModule } from '@angular/forms';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,15 @@ import { DecimalBrPipe } from './pipes/decimal-br.pipe';
     AppRoutingModule,
     BrowserAnimationsModule,
     ChartsModule,
+    FormsModule,
     
     MaterialModulesModule,
     TemplateModule,
   ],
-  providers: [DecimalBrPipe],
+  providers: [
+    DecimalBrPipe,
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
