@@ -8,11 +8,13 @@ import { TemplateModule } from './core/template/template.module';
 import { MaterialModulesModule } from './core/material-modules/material-modules.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
+import { DecimalBrPipe } from './pipes/decimal-br.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    DecimalBrPipe
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import { ChartsModule } from 'ng2-charts';
     MaterialModulesModule,
     TemplateModule,
   ],
-  providers: [],
+  providers: [DecimalBrPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
